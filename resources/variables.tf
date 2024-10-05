@@ -22,3 +22,5 @@ variable "network_security_group_tags" {
   description = "Tags for VPC"
   type        = map(any)
 }
+
+variable "security_group_id" {}
