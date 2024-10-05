@@ -10,3 +10,7 @@ output "vpc_id" {
 output "subnet_id" {
   value = data.aws_subnet.subnet-01.id
 }
+
+output "sm_secret_id" {
+  value = data.aws_secretsmanager_secret_version.secret-id.secret_id
+}
