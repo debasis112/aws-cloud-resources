@@ -6,6 +6,6 @@ data "aws_subnet" "subnet-01" {
   }
 }
 
-data "aws_secretsmanager_secret_version" "secret-version" {
-  secret_id = data.aws_secretsmanager_secret.acr_spn_credentials.id
+data "aws_secretsmanager_secret_version" "secret-id" {
+  secret_id = aws_secretsmanager_secret.acr_spn_credentials.id
 }
