@@ -7,7 +7,5 @@ resource "aws_acm_certificate" "cert-01" {
     "www.meditracks.in", # Optional: add additional domain names if needed
   ]
 
-  tags = {
-    Name = "MyCertificate-meditracks.in"
-  }
+  tags = var.ssl_cert_tags
 }
