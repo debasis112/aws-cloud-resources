@@ -3,6 +3,11 @@ variable "vpc_cidr" {
   type        = string
 }
 
+variable "nsg_ipv4_cidr" {
+  description = "CIDR for VPC"
+  type        = string
+}
+
 variable "vpc_tags" {
   description = "Tags for VPC"
   type        = map(any)
