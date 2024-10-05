@@ -6,3 +6,7 @@
 output "vpc_id" {
   value = aws_vpc.vpc-01.id
 }
+
+output "subnet_id" {
+  value = data.aws_subnet.subnet-01.id
+}

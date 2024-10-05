@@ -17,3 +17,8 @@ variable "subnet_tags" {
   description = "Tags for VPC"
   type        = map(any)
 }
+
+variable "network_security_group_tags" {
+  description = "Tags for VPC"
+  type        = map(any)
+}
