@@ -14,3 +14,8 @@ output "subnet_id" {
 output "sm_secret_id" {
   value = data.aws_secretsmanager_secret_version.secret-id.secret_id
 }
+
+# Output the DNS validation records needed
+output "validation_records" {
+  value = aws_acm_certificate.cert-01.domain_validation_options
+}

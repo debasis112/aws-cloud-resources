@@ -50,3 +50,8 @@ variable "ecs_cluster_tags" {
   description = "Tags for VPC"
   type        = map(any)
 }
+
+variable "ssl_cert_tags" {
+  description = "Tags for VPC"
+  type        = map(any)
+}

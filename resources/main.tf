@@ -6,13 +6,13 @@ resource "aws_ecs_cluster" "ecs_cluster" {
 
 # Define the task definition with the ACR image
 resource "aws_ecs_task_definition" "ecs_task" {
-  family                = "ecs-task"
+  family = "ecs-task"
   container_definitions = jsonencode([
     {
-      name  = "my-container",
-      image = "debacrregistry.azurecr.io/project-work:latest",
-      cpu   = 512,
-      memory = 1024,    # Container memory is 1024MB
+      name      = "my-container",
+      image     = "debacrregistry.azurecr.io/project-work:latest",
+      cpu       = 512,
+      memory    = 1024, # Container memory is 1024MB
       essential = true,
       portMappings = [
         {
