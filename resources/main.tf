@@ -6,13 +6,13 @@ resource "aws_ecs_cluster" "ecs_cluster" {
 
 # Define the task definition with the ACR image
 resource "aws_ecs_task_definition" "ecs_task" {
-  family = "ecs-task"
+  family                = "ecs-task"
   container_definitions = jsonencode([
     {
-      name      = "my-container",
-      image     = "debacrregistry.azurecr.io/project-work:latest", # ACR Image
-      cpu       = 512,
-      memory    = 1024,
+      name  = "my-container",
+      image = "debacrregistry.azurecr.io/project-work:latest",
+      cpu   = 512,
+      memory = 1024,    # Container memory is 1024MB
       essential = true,
       portMappings = [
         {
@@ -25,10 +25,11 @@ resource "aws_ecs_task_definition" "ecs_task" {
 
   requires_compatibilities = ["FARGATE"]
   network_mode             = "awsvpc"
-  cpu                      = "256"
-  memory                   = "512"
+  cpu                      = "512"  # Match the container's CPU or higher
+  memory                   = "1024" # Increase task memory to match container memory (at least 1024MB)
   execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn
 }
+
 
 # Define an ECS service to run the task
 resource "aws_ecs_service" "ecs_service" {
