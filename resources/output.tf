@@ -1,14 +1,14 @@
-output "vpc_id" {
-  value = aws_vpc.vpc-01.id
-}
+# output "vpc_id" {
+#   value = aws_vpc.vpc-01.id
+# }
 
-output "subnet_id" {
-  value = data.aws_subnet.subnet-01.id
-}
+# output "subnet_id" {
+#   value = data.aws_subnet.subnet-01.id
+# }
 
-output "sm_secret_id" {
-  value = data.aws_secretsmanager_secret_version.secret-id.secret_id
-}
+# output "sm_secret_id" {
+#   value = data.aws_secretsmanager_secret_version.secret-id.secret_id
+# }
 
 # Output the DNS validation records needed
 output "validation_records" {
