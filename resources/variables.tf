@@ -40,3 +40,8 @@ variable "AZ_ACR_SPN_CLIENT_SECRET" {
 variable "AZ_ACR_SPN_TENANT_ID" {
   type = string
 }
+
+variable "ecs_cluster_tags" {
+  description = "Tags for VPC"
+  type        = map(any)
+}

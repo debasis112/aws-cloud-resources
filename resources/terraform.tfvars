@@ -41,3 +41,13 @@ aws_secret_manager_tags = {
   Company     = "WIPRO",
   STD_ID      = "2020WA86256",
 }
+
+ecs_cluster_tags = {
+  Name        = "deb-ecs-cluster-01",
+  Project     = "debasis-project",
+  Environment = "Production",
+  Department  = "cloud-computing",
+  Owner       = "Debasis_Panda",
+  Company     = "WIPRO",
+  STD_ID      = "2020WA86256",
+}
