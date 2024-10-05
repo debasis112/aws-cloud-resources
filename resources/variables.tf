@@ -23,4 +23,20 @@ variable "network_security_group_tags" {
   type        = map(any)
 }
 
-variable "security_group_id" {}
+variable "aws_secret_manager_tags" {
+  description = "Tags for VPC"
+  type        = map(any)
+}
+
+# Variables to securely pass in SPN credentials
+variable "AZ_ACR_SPN_CLIENT_ID" {
+  type = string
+}
+
+variable "AZ_ACR_SPN_CLIENT_SECRET" {
+  type = string
+}
+
+variable "AZ_ACR_SPN_TENANT_ID" {
+  type = string
+}
