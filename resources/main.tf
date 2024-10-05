@@ -40,7 +40,7 @@ resource "aws_ecs_service" "ecs_service" {
   launch_type = "FARGATE"
 
   network_configuration {
-    subnets          = data.aws_subnet.subnet-01.id # Replace with your AWS subnets
+    subnets          = "subnet-02be7fb92e519a0b5" # Replace with your AWS subnets
     assign_public_ip = true
   }
 }
