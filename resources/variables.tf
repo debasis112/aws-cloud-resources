@@ -32,17 +32,7 @@ variable "base_name" {
   default     = "deb"  # Change this if need a different base name
 }
 
-variable "network_security_group_tags" {
-  description = "Tags for VPC"
-  type        = map(any)
-}
-
 variable "aws_secret_manager_tags" {
-  description = "Tags for VPC"
-  type        = map(any)
-}
-
-variable "web_cluster_tags" {
   description = "Tags for VPC"
   type        = map(any)
 }
