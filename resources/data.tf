@@ -1,9 +1,9 @@
 # For specific subnet of name tag
 data "aws_subnet" "subnet-01" {
-  count = var.subnet_count
+
   filter {
     name   = "tag:Name"
-    values = ["deb-subnet-${count.index + 1}"]
+    values = ["deb-subnet"]
   }
 }
 
