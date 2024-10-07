@@ -14,3 +14,7 @@
 output "validation_records" {
   value = aws_acm_certificate.cert-01.domain_validation_options
 }
+
+output "lb_dns" {
+  value = aws_lb.app_lb-01.dns_name
+}
