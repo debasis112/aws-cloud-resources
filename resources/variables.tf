@@ -1,9 +1,3 @@
-# # Declare variable for Security group
-# variable "nsg_ipv4_cidr" {
-#   description = "CIDR for VPC"
-#   type        = string
-# }
-
 # Declare variable for vpc counts
 variable "vpc_count" {
   description = "Number of VPCs to create"
@@ -31,30 +25,14 @@ variable "tags" {
     STD_ID      = "2020WA86256",
   }
 }
-
-variable "subnet_base_name" {
-  description = "Base name for subnets"
+# Define a variable for base name of resources
+variable "base_name" {
+  description = "Base name for aws resources"
   type        = string
-  default     = "deb-subnet"  # Change this if need a different base name
-}
-
-variable "vpc_base_name" {
-  description = "Base name for vpc"
-  type        = string
-  default     = "deb-vpc"  # Change this if need a different base name
-}
-
-variable "network_security_group_tags" {
-  description = "Tags for VPC"
-  type        = map(any)
+  default     = "deb"  # Change this if need a different base name
 }
 
 variable "aws_secret_manager_tags" {
-  description = "Tags for VPC"
-  type        = map(any)
-}
-
-variable "web_cluster_tags" {
   description = "Tags for VPC"
   type        = map(any)
 }
