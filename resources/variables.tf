@@ -18,12 +18,6 @@ variable "subnet_count" {
   default     = 2  # Adjust this value as needed for subnets
 }
 
-# # Declare variable for subnet zone
-# variable "subnet_zone" {
-#   description = "Zone for subnet"
-#   type        = string
-# }
-
 # Define a variable for VPC tags
 variable "tags" {
   description = "Tags to assign to the VPCs"

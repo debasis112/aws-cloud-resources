@@ -2,8 +2,6 @@
 
 nsg_ipv4_cidr = "0.0.0.0/0"
 
-# subnet_zone = "ap-south-1a"
-
 network_security_group_tags = {
   Name        = "deb-nsg-01",
   Project     = "debasis-project",
