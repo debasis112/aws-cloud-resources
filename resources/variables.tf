@@ -1,7 +1,7 @@
-variable "vpc_cidr" {
-  description = "CIDR for VPC"
-  type        = string
-}
+# variable "vpc_cidr" {
+#   description = "CIDR for VPC"
+#   type        = string
+# }
 
 variable "nsg_ipv4_cidr" {
   description = "CIDR for VPC"
@@ -33,10 +33,10 @@ variable "vpc_tags" {
   }
 }
 
-variable "subnet_cidr" {
-  description = "CIDR for subnet"
-  type        = string
-}
+# variable "subnet_cidr" {
+#   description = "CIDR for subnet"
+#   type        = string
+# }
 
 variable "subnet_count" {
   description = "Number of subnets to create"
