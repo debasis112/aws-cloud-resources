@@ -1,8 +1,8 @@
-# Declare variable for Security group
-variable "nsg_ipv4_cidr" {
-  description = "CIDR for VPC"
-  type        = string
-}
+# # Declare variable for Security group
+# variable "nsg_ipv4_cidr" {
+#   description = "CIDR for VPC"
+#   type        = string
+# }
 
 # Declare variable for vpc counts
 variable "vpc_count" {

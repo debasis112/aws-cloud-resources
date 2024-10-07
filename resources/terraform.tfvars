@@ -1,6 +1,6 @@
 
 
-nsg_ipv4_cidr = "0.0.0.0/0"
+# nsg_ipv4_cidr = "0.0.0.0/0"
 
 network_security_group_tags = {
   Name        = "deb-nsg-01",
