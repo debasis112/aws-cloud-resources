@@ -1,3 +1,4 @@
+# # Route table creation
 # resource "aws_route_table" "public" {
 #   vpc_id = aws_vpc.vpc-01.id
 

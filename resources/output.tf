@@ -6,6 +6,16 @@
 #   value = data.aws_subnet.subnet-01.id
 # }
 
+# Output the fetched subnet IDs
+output "fetched_subnet_ids" {
+  value = data.aws_subnet.subnet[*].id
+}
+
+# Output the fetched subnet names
+output "fetched_subnet_names" {
+  value = data.aws_subnet.subnet[*].tags["Name"]
+}
+
 # output "sm_secret_id" {
 #   value = data.aws_secretsmanager_secret_version.secret-id.secret_id
 # }
