@@ -4,7 +4,7 @@ nsg_ipv4_cidr = "0.0.0.0/0"
 
 subnet_cidr = "10.0.1.0/24"
 
-subnet_zone = "ap-south-1"
+subnet_zone = "ap-south-1a"
 
 vpc_tags = {
   Name        = "deb-vpc-01",
