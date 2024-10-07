@@ -4,7 +4,8 @@ resource "aws_ecs_task_definition" "web_task-01" {
   container_definitions = jsonencode([
     {
       name      = "my-container",
-      image     = "debacrregistry.azurecr.io/project-work:latest",
+      # image     = "debacrregistry.azurecr.io/project-work:latest",
+      image     = "debasis1999/project-work:latest"
       cpu       = 512,
       memory    = 1024, # Container memory is 1024MB
       essential = true,
