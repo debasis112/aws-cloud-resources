@@ -5,7 +5,7 @@ resource "aws_lb" "app_lb-01" {
   security_groups    = [aws_security_group.ecs_sg-01.id]
   subnets            = aws_subnet.subnet-01[*].id
 }
-
+//
 resource "aws_lb_target_group" "app_tg-01" {
   name     = "app-tg-01"
   port     = 80
