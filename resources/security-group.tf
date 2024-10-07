@@ -1,6 +1,6 @@
 # Security Group creation
 resource "aws_security_group" "ecs_sg-01" {
-  vpc_id = aws_vpc.vpc-01.id
+  vpc_id = aws_vpc.vpc-01[*].id
 
   ingress {
     from_port   = 80
