@@ -16,8 +16,8 @@ resource "aws_ecs_task_definition" "web_task-01" {
       essential = true,
       portMappings = [
         {
-          containerPort = 443,
-          hostPort      = 443
+          containerPort = 80,
+          hostPort      = 80
         }
       ]
     }

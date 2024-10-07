@@ -1,4 +1,4 @@
-# # Security group for allowing HTTPS (TLS) and all outbound traffic
+# # Security group for allowing HTTP (TLS) and all outbound traffic
 # resource "aws_security_group" "allow_tls" {
 #   name        = "allow_tls"
 #   description = "Allow TLS inbound traffic and all outbound traffic"
@@ -6,7 +6,7 @@
 #   tags        = var.network_security_group_tags
 # }
 
-# # Ingress rule for allowing HTTPS (TLS) traffic from the internet (0.0.0.0/0)
+# # Ingress rule for allowing HTTP (TLS) traffic from the internet (0.0.0.0/0)
 # resource "aws_vpc_security_group_ingress_rule" "allow_tls_ipv4" {
 #   security_group_id = aws_security_group.allow_tls.id
 #   cidr_ipv4         = var.nsg_ipv4_cidr # Allow traffic from the internet
@@ -34,7 +34,7 @@
 #     from_port   = 443
 #     to_port     = 443
 #     protocol    = "tcp"
-#     cidr_blocks = [var.nsg_ipv4_cidr] # Allow HTTPS traffic from anywhere
+#     cidr_blocks = [var.nsg_ipv4_cidr] # Allow HTTP traffic from anywhere
 #   }
 
 #   egress {
@@ -49,10 +49,10 @@ resource "aws_security_group" "ecs_sg-01" {
   vpc_id = aws_vpc.vpc-01.id
 
   ingress {
-    from_port   = 443
-    to_port     = 443
+    from_port   = 80
+    to_port     = 80
     protocol    = "tcp"
-    cidr_blocks = [var.nsg_ipv4_cidr] # Allow HTTPS traffic from anywhere
+    cidr_blocks = [var.nsg_ipv4_cidr] # Allow HTTP traffic from anywhere
   }
 
   egress {
