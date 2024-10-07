@@ -8,4 +8,5 @@
 #     type             = "forward"
 #     target_group_arn = aws_lb_target_group.app_tg-01.arn
 #   }
+#   tags = merge(var.tags, { Name = "${var.base_name}-lb-list-01" })
 # }
