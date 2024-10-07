@@ -5,7 +5,7 @@
 # }
 
 # Create multiple VPCs
-resource "aws_vpc" "vpc" {
+resource "aws_vpc" "vpc-01" {
   count       = var.vpc_count
   cidr_block  = "10.0.${count.index}.0/16"
 
