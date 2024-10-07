@@ -7,7 +7,7 @@
 # }
 
 # Data block to fetch the created subnets by their tags
-data "aws_subnet" "subnet" {
+data "aws_subnet" "subnet-01" {
   count = var.subnet_count
 
   filter {
