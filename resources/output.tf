@@ -1,10 +1,17 @@
-# output "vpc_id" {
-#   value = aws_vpc.vpc-01.id
-# }
+# Output the IDs of the created VPCs
+output "vpc_ids" {
+  value = aws_vpc.vpc-01[*].id
+}
 
-# output "subnet_id" {
-#   value = data.aws_subnet.subnet-01.id
-# }
+# Output the fetched subnet IDs
+output "fetched_subnet_ids" {
+  value = aws_subnet.subnet-01[*].id
+}
+
+# Output the fetched subnet names
+output "fetched_subnet_names" {
+  value = aws_subnet.subnet-01[*].tags["Name"]
+}
 
 # output "sm_secret_id" {
 #   value = data.aws_secretsmanager_secret_version.secret-id.secret_id
