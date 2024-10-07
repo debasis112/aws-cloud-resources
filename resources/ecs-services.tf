@@ -1,6 +1,6 @@
 # Define an ECS service to run the task
 resource "aws_ecs_service" "web_service-01" {
-  //count             = var.subnet_count
+  count             = var.subnet_count
   name            = "web-service"
   cluster         = aws_ecs_cluster.web_cluster.id
   task_definition = aws_ecs_task_definition.web_task-01.arn
