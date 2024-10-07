@@ -23,6 +23,11 @@ variable "subnet_tags" {
   type        = map(any)
 }
 
+variable "subnet_zone" {
+  description = "Zone for subnet"
+  type        = string
+}
+
 variable "network_security_group_tags" {
   description = "Tags for VPC"
   type        = map(any)
@@ -46,7 +51,7 @@ variable "AZ_ACR_SPN_TENANT_ID" {
   type = string
 }
 
-variable "ecs_cluster_tags" {
+variable "web_cluster_tags" {
   description = "Tags for VPC"
   type        = map(any)
 }
@@ -54,4 +59,12 @@ variable "ecs_cluster_tags" {
 variable "ssl_cert_tags" {
   description = "Tags for VPC"
   type        = map(any)
+}
+
+variable "domain_access_key" {
+  type = string
+}
+
+variable "domain_secret" {
+  type = string
 }
