@@ -13,12 +13,12 @@ output "vpc_ids" {
 
 # Output the fetched subnet IDs
 output "fetched_subnet_ids" {
-  value = data.aws_subnet.subnet-01[*].id
+  value = aws_subnet.subnet-01[*].id
 }
 
 # Output the fetched subnet names
 output "fetched_subnet_names" {
-  value = data.aws_subnet.subnet-01[*].tags["Name"]
+  value = aws_subnet.subnet-01[*].tags["Name"]
 }
 
 # output "sm_secret_id" {
