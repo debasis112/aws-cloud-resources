@@ -15,12 +15,12 @@
 # }
 
 # Create subnets in each VPC
-resource "aws_subnet" "subnet-01" {
-  count             = var.subnet_count * var.vpc_count  # Total subnets across all VPCs
-  vpc_id            = aws_vpc.vpc-01[floor(count.index / var.subnet_count)].id  # Reference the appropriate VPC
-  cidr_block        = "10.${floor(count.index / var.subnet_count)}.${count.index % var.subnet_count}.0/24"
-  availability_zone = element(["ap-south-1a", "ap-south-1b"], count.index % var.subnet_count)
+# resource "aws_subnet" "subnet-01" {
+#   count             = var.subnet_count * var.vpc_count  # Total subnets across all VPCs
+#   vpc_id            = aws_vpc.vpc-01[floor(count.index / var.subnet_count)].id  # Reference the appropriate VPC
+#   cidr_block        = "10.${floor(count.index / var.subnet_count)}.${count.index % var.subnet_count}.0/24"
+#   availability_zone = element(["ap-south-1a", "ap-south-1b"], count.index % var.subnet_count)
 
-  # Use tags similar to the previous example
-  tags = merge(var.tags, { Name = "${var.subnet_base_name}-${count.index + 1}" })
-}
+#   # Use tags similar to the previous example
+#   tags = merge(var.tags, { Name = "${var.subnet_base_name}-${count.index + 1}" })
+# }
