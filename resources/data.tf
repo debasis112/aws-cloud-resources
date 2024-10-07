@@ -6,13 +6,13 @@
 #   }
 # }
 
-# Data block to fetch the created subnets by their tags
+# Data block to fetch existing subnets by name
 data "aws_subnet" "subnet-01" {
   count = var.subnet_count
 
   filter {
     name   = "tag:Name"
-    values = ["${var.subnet_tags["Name"]}-${count.index + 1}"]
+    values = ["${var.subnet_base_name}-${count.index + 1}"]  # Dynamic subnet name using variable
   }
 }
 

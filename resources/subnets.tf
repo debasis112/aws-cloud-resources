@@ -22,5 +22,5 @@ resource "aws_subnet" "subnet-01" {
   availability_zone = element(["ap-south-1a", "ap-south-1b"], count.index % var.subnet_count)
 
   # Use tags similar to the previous example
-  tags = merge(var.subnet_tags, { Name = "deb-subnet-${count.index + 1}" }) 
+  tags = merge(var.subnet_tags, { Name = "${var.subnet_base_name}-${count.index + 1}" }) 
 }

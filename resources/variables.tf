@@ -38,6 +38,18 @@ variable "vpc_tags" {
 #   type        = string
 # }
 
+variable "subnet_base_name" {
+  description = "Base name for subnets"
+  type        = string
+  default     = "deb-subnet"  # Change this if you need a different base name
+}
+
+variable "vpc_base_name" {
+  description = "Base name for vpc"
+  type        = string
+  default     = "deb-vpc"  # Change this if you need a different base name
+}
+
 variable "subnet_count" {
   description = "Number of subnets to create"
   type        = number
@@ -54,7 +66,6 @@ variable "subnet_tags" {
   description = "Tags to assign to the subnets"
   type        = map(string)
   default = {
-    Name        = "deb-subnet-01",
     Project     = "debasis-project",
     Environment = "Production",
     Department  = "cloud-computing",
