@@ -8,14 +8,14 @@ variable "nsg_ipv4_cidr" {
 variable "vpc_count" {
   description = "Number of VPCs to create"
   type        = number
-  default     = 2  # Adjust this value as needed for VPC
+  default     = 1 # Adjust this value as needed for VPC
 }
 
 # Declare variable for subnet counts
 variable "subnet_count" {
   description = "Number of subnets to create"
   type        = number
-  default     = 2  # Adjust this value as needed for subnets
+  default     = 1 # Adjust this value as needed for subnets
 }
 
 # Define a variable for VPC tags
