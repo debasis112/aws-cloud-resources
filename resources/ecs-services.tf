@@ -41,6 +41,7 @@
 #     assign_public_ip = false
 #   }
 
+
 #   load_balancer {
 #     target_group_arn = aws_lb_target_group.ecs_target_group.arn
 #     container_name   = "my-container"
