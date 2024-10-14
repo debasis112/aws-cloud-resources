@@ -1,6 +1,6 @@
 # Security Group creation
 resource "aws_security_group" "ecs_sg-01" {
-  count      = var.vpc_count
+  count  = var.vpc_count
   vpc_id = aws_vpc.vpc-01[count.index].id
 
   ingress {
