@@ -47,24 +47,43 @@
 #   }])
 # }
 
-# Reference ecs_execution_role in ECS Task Definition
+# # Reference ecs_execution_role in ECS Task Definition
+# resource "aws_ecs_task_definition" "my_task" {
+#   family                = "my-task"
+#   network_mode          = "awsvpc"
+#   requires_compatibilities = ["FARGATE"]
+#   cpu                   = "256"
+#   memory                = "512"
+#   execution_role_arn    = aws_iam_role.ecs_execution_role.arn
+#   task_role_arn         = aws_iam_role.ecs_execution_role.arn
+
+#   container_definitions = jsonencode([{
+#     name      = "my-container"
+#     image     = "022499026373.dkr.ecr.us-east-1.amazonaws.com/private-project-work:v1.0.0" # Update with your ECR image URI
+#     essential = true
+#     portMappings = [{
+#       containerPort = 80
+#       hostPort      = 80
+#       protocol      = "tcp"
+#     }]
+#   }])
+# }
+
+# 9. Create ECS Task Definition
 resource "aws_ecs_task_definition" "my_task" {
-  family                = "my-task"
-  network_mode          = "awsvpc"
-  requires_compatibilities = ["FARGATE"]
-  cpu                   = "256"
-  memory                = "512"
-  execution_role_arn    = aws_iam_role.ecs_execution_role.arn
-  task_role_arn         = aws_iam_role.ecs_execution_role.arn
+  family                   = "my-task"
+  network_mode             = "awsvpc"
+  requires_compatibilities  = ["FARGATE"]
+  cpu                      = "256"
+  memory                   = "512"
 
   container_definitions = jsonencode([{
     name      = "my-container"
-    image     = "022499026373.dkr.ecr.us-east-1.amazonaws.com/private-project-work:v1.0.0" # Update with your ECR image URI
+    image     = "022499026373.dkr.ecr.us-east-1.amazonaws.com/private-project-work:v1.0.0"
     essential = true
     portMappings = [{
       containerPort = 80
       hostPort      = 80
-      protocol      = "tcp"
     }]
   }])
 }
