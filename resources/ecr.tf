@@ -15,6 +15,7 @@ resource "aws_ecrpublic_repository" "public-repo-01" {
 
 # ECR Private repository creation
 resource "aws_ecr_repository" "private-repo-01" {
+  provider        = aws.us_east_1
   name                 = "private-project-work"
   image_tag_mutability = "MUTABLE"
 
