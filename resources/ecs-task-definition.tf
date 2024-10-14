@@ -69,23 +69,22 @@
 # #   }])
 # # }
 
-# # 9. Create ECS Task Definition
-# # 9. Create ECS Task Definition
-# resource "aws_ecs_task_definition" "my_task" {
-#   family                   = "my-task"
-#   network_mode             = "awsvpc"
-#   requires_compatibilities  = ["FARGATE"]
-#   cpu                      = "1024"  # Increase CPU to 512 (adjust as needed)
-#   memory                   = "2048" # Increase Memory to 1024 (1 GiB)
-#   execution_role_arn       = aws_iam_role.ecs_execution_role.arn  # Specify execution role ARN
+# 9. Create ECS Task Definition
+resource "aws_ecs_task_definition" "my_task" {
+  family                   = "my-task"
+  network_mode             = "awsvpc"
+  requires_compatibilities  = ["FARGATE"]
+  cpu                      = "1024"  # Increase CPU to 512 (adjust as needed)
+  memory                   = "2048" # Increase Memory to 1024 (1 GiB)
+  execution_role_arn       = aws_iam_role.ecs_execution_role.arn  # Specify execution role ARN
 
-#   container_definitions = jsonencode([{
-#     name      = "my-container"
-#     image     = "022499026373.dkr.ecr.us-east-1.amazonaws.com/private-project-work:v1.0.0"
-#     essential = true
-#     portMappings = [{
-#       containerPort = 80
-#       hostPort      = 80
-#     }]
-#   }])
-# }
+  container_definitions = jsonencode([{
+    name      = "my-container"
+    image     = "022499026373.dkr.ecr.us-east-1.amazonaws.com/private-project-work:v1.0.0"
+    essential = true
+    portMappings = [{
+      containerPort = 80
+      hostPort      = 80
+    }]
+  }])
+}
