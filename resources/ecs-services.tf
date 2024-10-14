@@ -18,7 +18,7 @@ resource "aws_ecs_service" "web_service-01" {
   cluster         = aws_ecs_cluster.web_cluster.id
   task_definition = aws_ecs_task_definition.my_task.arn
   desired_count   = 3
-  iam_role        = aws_iam_role.ecs_task_execution_role.arn
+  iam_role        = aws_iam_role.ecs_execution_role.arn
 
   ordered_placement_strategy {
     type  = "binpack"
