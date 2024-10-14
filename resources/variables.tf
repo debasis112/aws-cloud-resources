@@ -29,7 +29,7 @@ variable "tags" {
 variable "base_name" {
   description = "Base name for aws resources"
   type        = string
-  default     = "deb"  # Change this if need a different base name
+  default     = "deb" # Change this if need a different base name
 }
 
 variable "aws_secret_manager_tags" {
