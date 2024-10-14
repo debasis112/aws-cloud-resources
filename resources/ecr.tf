@@ -13,7 +13,7 @@ resource "aws_ecrpublic_repository" "public-repo-01" {
   tags = merge(var.tags, { Name = "${var.base_name}-ecr-public-01" })
 }
 
-# ECR Private repository creation
+# ECR Private repository creation.
 resource "aws_ecr_repository" "private-repo-01" {
   provider        = aws.us_east_1
   name                 = "private-project-work"
