@@ -1,5 +1,10 @@
-# Create an ECS cluster
-resource "aws_ecs_cluster" "web_cluster" {
+# 8. Create ECS Cluster
+resource "aws_ecs_cluster" "main" {
   name = "web-cluster-01"
   tags = merge(var.tags, { Name = "${var.base_name}-ecs-cluster-01" })
 }
+
+# # 8. Create ECS Cluster
+# resource "aws_ecs_cluster" "main" {
+#   name = "web-cluster-01"
+# }

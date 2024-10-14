@@ -7,3 +7,18 @@
 #   subnets            = aws_subnet.subnet-01[*].id
 #   tags = merge(var.tags, { Name = "${var.base_name}-lb-01" })
 # }
+
+# 5. Create Application Load Balancer
+resource "aws_lb" "app_lb" {
+  name               = "app-lb"
+  internal           = false
+  load_balancer_type = "application"
+  security_groups    = [aws_security_group.lb_sg.id]
+  subnets            = [aws_subnet.public_subnet.id]
+
+  enable_deletion_protection = false
+
+  tags = {
+    Name = "app-load-balancer"
+  }
+}

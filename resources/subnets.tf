@@ -17,14 +17,35 @@
 #   tags = merge(var.tags, { Name = "${var.subnet_base_name}-${count.index + 1}" })
 # }
 
-# Create one subnets in each VPC
-resource "aws_subnet" "subnet-01" {
-  count             = var.subnet_count                                         # Total subnets across all VPCs
-  vpc_id            = aws_vpc.vpc-01[floor(count.index / var.subnet_count)].id # Reference the appropriate VPC
-  cidr_block        = "10.${floor(count.index / var.subnet_count)}.${count.index % var.subnet_count}.0/24"
-  availability_zone = element(["ap-south-1a", "ap-south-1b"], count.index % var.subnet_count)
+# # Create one subnets in each VPC
+# resource "aws_subnet" "subnet-01" {
+#   count             = var.subnet_count                                         # Total subnets across all VPCs
+#   vpc_id            = aws_vpc.vpc-01[floor(count.index / var.subnet_count)].id # Reference the appropriate VPC
+#   cidr_block        = "10.${floor(count.index / var.subnet_count)}.${count.index % var.subnet_count}.0/24"
+#   availability_zone = element(["ap-south-1a", "ap-south-1b"], count.index % var.subnet_count)
 
-  # Use tags similar to the previous example
-  tags = merge(var.tags, { Name = "${var.base_name}-subnet-${count.index + 1}" })
+#   # Use tags similar to the previous example
+#   tags = merge(var.tags, { Name = "${var.base_name}-subnet-${count.index + 1}" })
+# }
+
+# 2. Create Public and Private Subnets
+resource "aws_subnet" "public_subnet" {
+  vpc_id            = aws_vpc.main.id
+  cidr_block        = "10.0.1.0/24"
+  availability_zone = "ap-south-1a"
+  map_public_ip_on_launch = true
+
+  tags = {
+    Name = "public-subnet"
+  }
 }
 
+resource "aws_subnet" "private_subnet" {
+  vpc_id            = aws_vpc.main.id
+  cidr_block        = "10.0.2.0/24"
+  availability_zone = "ap-south-1a"
+
+  tags = {
+    Name = "private-subnet"
+  }
+}
