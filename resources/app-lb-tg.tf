@@ -8,24 +8,24 @@
 # }
 
 # 6. Create a Target Group
-# resource "aws_lb_target_group" "ecs_target_group" {
-#   name     = "ecs-target-group"
-#   port     = 80                   # Adjust the port as needed
-#   protocol = "HTTP"               # Adjust the protocol as needed
-#   vpc_id   = aws_vpc.main.id
+resource "aws_lb_target_group" "ecs_target_group" {
+  name     = "ecs-target-group"
+  port     = 80                   # Adjust the port as needed
+  protocol = "HTTP"               # Adjust the protocol as needed
+  vpc_id   = aws_vpc.main.id
 
-#   # Specify target_type as 'ip' for awsvpc mode
-#   target_type = "ip"
+  # Specify target_type as 'ip' for awsvpc mode
+  target_type = "ip"
 
-#   health_check {
-#     path                = "/"
-#     interval            = 30
-#     timeout             = 5
-#     healthy_threshold  = 2
-#     unhealthy_threshold = 2
-#   }
+  health_check {
+    path                = "/"
+    interval            = 30
+    timeout             = 5
+    healthy_threshold  = 2
+    unhealthy_threshold = 2
+  }
 
-#   tags = {
-#     Name = "ECS Target Group"
-#   }
-# }
+  tags = {
+    Name = "ECS Target Group"
+  }
+}
