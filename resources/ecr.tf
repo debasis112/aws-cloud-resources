@@ -1,5 +1,6 @@
 # ECR Public repository creation
 resource "aws_ecrpublic_repository" "public-repo-01" {
+  provider = aws.us_east_1
   repository_name = "project-work"
 
   catalog_data {
