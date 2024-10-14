@@ -1,7 +1,7 @@
 # ECR Public repository creation
 resource "aws_ecrpublic_repository" "public-repo-01" {
-  provider = aws.us_east_1
-  repository_name = "project-work"
+  provider        = aws.us_east_1
+  repository_name = "public-project-work"
 
   catalog_data {
     about_text        = "Public repository in ECR."
@@ -10,5 +10,16 @@ resource "aws_ecrpublic_repository" "public-repo-01" {
     operating_systems = ["Linux"]
   }
 
-  tags = merge(var.tags, { Name = "${var.base_name}-ecr-01" })
+  tags = merge(var.tags, { Name = "${var.base_name}-ecr-public-01" })
+}
+
+# ECR Private repository creation
+resource "aws_ecr_repository" "private-repo-01" {
+  name                 = "private-project-work"
+  image_tag_mutability = "MUTABLE"
+
+  image_scanning_configuration {
+    scan_on_push = true
+  }
+  tags = merge(var.tags, { Name = "${var.base_name}-ecr-private-01" })
 }
