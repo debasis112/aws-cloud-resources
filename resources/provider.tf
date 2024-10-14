@@ -1,7 +1,7 @@
 # Configure the AWS Provider
-# provider "aws" {
-#   region = "ap-south-1" # Mumbai
-# }
+provider "aws" {
+  region = "ap-south-1" # Mumbai
+}
 
 # For ECR we have to use US region as for free tier
 provider "aws" {
