@@ -24,3 +24,25 @@
 #   memory                   = "1024" # Increase task memory to match container memory (at least 1024MB)
 #   execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn
 # }
+
+
+resource "aws_ecs_task_definition" "my_task" {
+  family                   = "my-task"
+  network_mode             = "awsvpc" # Required for Fargate
+  requires_compatibilities = ["FARGATE"]
+  cpu                      = "256" # vCPU units
+  memory                   = "512" # Memory in MiB
+  execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn
+  task_role_arn            = aws_iam_role.ecs_task_execution_role.arn
+
+  container_definitions = jsonencode([{
+    name      = "my-container"
+    image     = "022499026373.dkr.ecr.us-east-1.amazonaws.com/private-project-work:v1.0.0" # Replace with your ECR image
+    essential = true
+    portMappings = [{
+      containerPort = 80 # Change this to your application's port
+      hostPort      = 80
+      protocol      = "tcp"
+    }]
+  }])
+}
