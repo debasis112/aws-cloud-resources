@@ -2,7 +2,7 @@
 resource "aws_ecs_service" "web_service-01" {
   name            = "web-service"
   cluster         = aws_ecs_cluster.web_cluster.id
-  task_definition = aws_ecs_task_definition.web_task-01.arn
+  task_definition = aws_ecs_task_definition.my_task-01.arn
   desired_count   = 1
   launch_type     = "FARGATE"
 
