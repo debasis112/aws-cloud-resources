@@ -12,6 +12,7 @@
 
 # ECR IAM Policy
 data "aws_iam_policy_document" "iam-policy-01" {
+  provider = aws.us_east_1  # Reference the aliased provider
   statement {
     sid    = "new policy"
     effect = "Allow"
