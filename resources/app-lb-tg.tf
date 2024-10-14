@@ -10,9 +10,12 @@
 # 6. Create a Target Group
 resource "aws_lb_target_group" "ecs_target_group" {
   name     = "ecs-target-group"
-  port     = 80
-  protocol = "HTTP"
+  port     = 80                   # Adjust the port as needed
+  protocol = "HTTP"               # Adjust the protocol as needed
   vpc_id   = aws_vpc.main.id
+
+  # Specify target_type as 'ip' for awsvpc mode
+  target_type = "ip"
 
   health_check {
     path                = "/"
@@ -23,6 +26,6 @@ resource "aws_lb_target_group" "ecs_target_group" {
   }
 
   tags = {
-    Name = "ecs-target-group"
+    Name = "ECS Target Group"
   }
 }
