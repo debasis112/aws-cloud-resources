@@ -142,7 +142,7 @@ resource "aws_iam_policy" "ecr_access_policy" {
           "ecr:BatchGetImage",
           "ecr:BatchCheckLayerAvailability",
           "ecr:GetAuthorizationToken",
-          "ecr:DescribeRepositories"  # Optional: Add if you need to describe repositories
+          "ecr:DescribeImages"  # Optional: Add if you need to describe repositories
         ],
         "Resource" : "*"
       }
