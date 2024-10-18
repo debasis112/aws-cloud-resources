@@ -117,7 +117,9 @@ resource "aws_iam_role_policy" "apprunner_ecr_access_policy" {
           "ecr:BatchGetImage",
           "ecr:BatchCheckLayerAvailability"
         ],
-        Resource = "022499026373.dkr.ecr.us-east-1.amazonaws.com/private-project-work"  # Replace with your ECR repository ARN
+        Resource = "arn:aws:ecr:us-east-1:022499026373:repository/private-project-work"
+        # Syntax is arn:aws:ecr:<region>:<account-id>:repository/<repository-name> # Replace with your ECR repository ARN
+  
       },
       {
         Effect   = "Allow",
