@@ -144,7 +144,7 @@ resource "aws_iam_policy" "ecr_access_policy" {
           "ecr:GetAuthorizationToken",
           "ecr:DescribeRepositories"  # Optional: Add if you need to describe repositories
         ],
-        "Resource" : "arn:aws:ecr:us-east-1:022499026373:repository/private-project-work"
+        "Resource" : "*"
       }
     ]
   })
