@@ -85,23 +85,25 @@
 # }
 
 
-# IAM rule and policy for App run to fatch image from ECR
-resource "aws_iam_role" "apprunner_ecr_access" {
-  name = "apprunner-ecr-access-role"
+# # IAM rule and policy for App run to fatch image from ECR
+# resource "aws_iam_role" "apprunner_ecr_access" {
+#   name = "apprunner-ecr-access-role"
 
-  assume_role_policy = jsonencode({
-    Version = "2012-10-17",
-    Statement = [
-      {
-        Action    = "sts:AssumeRole",
-        Effect    = "Allow",
-        Principal = {
-          Service = "apprunner.amazonaws.com"
-        }
-      }
-    ]
-  })
-}
+#   assume_role_policy = jsonencode({
+#     Version = "2012-10-17",
+#     Statement = [
+#       {
+#         Action    = "sts:AssumeRole",
+#         Effect    = "Allow",
+#         Principal = {
+#           Service = "apprunner.amazonaws.com"
+#         }
+#       }
+#     ]
+#   })
+# }
+
+
 
 # # For ECR to pull image from private repo
 # resource "aws_iam_role_policy" "apprunner_ecr_access_policy" {
@@ -128,30 +130,42 @@ resource "aws_iam_role" "apprunner_ecr_access" {
 #     ]
 #   })
 # }
+# Create an IAM role for App Runner
+resource "aws_iam_role" "apprunner_ecr_access" {
+  name        = "app-runner-ecr-access-role"
+  description = "Role for App Runner to access ECR"
 
-resource "aws_iam_policy" "ecr_access_policy" {
-  name = "AppRunner-ECR-Cross-Region-Policy"
-
-  policy = jsonencode({
-    "Version" : "2012-10-17",
-    "Statement" : [
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
       {
-        "Effect" : "Allow",
-        "Action" : [
-          "ecr:GetDownloadUrlForLayer",
-          "ecr:BatchGetImage",
-          "ecr:BatchCheckLayerAvailability",
-          "ecr:GetAuthorizationToken",
-          "ecr:DescribeImages"  # Optional: Add if you need to describe repositories
-        ],
-        "Resource" : "*"
+        Action = "sts:AssumeRole"
+        Effect = "Allow"
+        Principal = {
+          Service = "build.apprunner.amazonaws.com"
+        }
       }
     ]
   })
 }
 
-# For ECR to pull image from private repo
+# Attach the AWS managed policy for App Runner ECR access
 resource "aws_iam_role_policy_attachment" "apprunner_ecr_access_attach" {
   role       = aws_iam_role.apprunner_ecr_access.name
-  policy_arn = aws_iam_policy.ecr_access_policy.arn
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSAppRunnerServicePolicyForECRAccess"
 }
+
+# Create an App Runner service
+# resource "aws_apprunner_service" "example" {
+#   name                 = "example-service"
+#   instance_role_arn   = aws_iam_role.apprunner_ecr_access.arn
+#   source_configuration {
+#     image_repository {
+#       image_identifier = "<your-ecr-image>"
+#       image_repository_type = "ECR"
+#       image_configuration {
+#         port = "80"  # Adjust as necessary
+#       }
+#     }
+#   }
+# }
