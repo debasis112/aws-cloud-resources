@@ -14,7 +14,7 @@ resource "aws_ecrpublic_repository" "public-repo-01" {
 }
 
 # ECR Public repository creation
-resource "aws_ecrpublic_repository" "public-repo-01" {
+resource "aws_ecrpublic_repository" "public-repo-02" {
   # provider        = aws.us_east_1
   repository_name = "public-project-work"
 
