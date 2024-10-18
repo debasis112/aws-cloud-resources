@@ -148,7 +148,10 @@ resource "aws_iam_policy" "ecr_access_policy" {
       {
         "Effect" : "Allow",
         "Action" : [
-          "ecr:GetAuthorizationToken"
+          "ecr:GetAuthorizationToken",
+          "ecr:GetDownloadUrlForLayer",
+          "ecr:BatchGetImage",
+          "ecr:BatchCheckLayerAvailability"
         ],
         "Resource" : "*"
       }

@@ -26,6 +26,6 @@
 # #   value = aws_lb.app_lb-01.dns_name
 # # }
 
-output "app_runner-service_url" {
-   value = aws_apprunner_service.web_app_private.service_url
-}
+# output "app_runner-service_url" {
+#    value = aws_apprunner_service.web_app_private.service_url
+# }
