@@ -2,10 +2,10 @@
 data "aws_caller_identity" "current" {}
 
 # Data source to get the latest image from the ECR Public repository
-data "aws_ecr_image" "ecr_image" {
-  repository_name = "public-project-work"
-  image_tag       = "v1.0.0"
-}
+# data "aws_ecr_image" "ecr_image" {
+#   repository_name = "public-project-work"
+#   image_tag       = "v1.0.0"
+# }
 
 # # For specific subnet of name tag
 # data "aws_subnet" "subnet-01" {
