@@ -25,3 +25,7 @@
 # # output "lb_dns" {
 # #   value = aws_lb.app_lb-01.dns_name
 # # }
+
+output "app_runner-service_url" {
+   value = aws_apprunner_service.web_app.service_url
+}
