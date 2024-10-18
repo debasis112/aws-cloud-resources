@@ -54,12 +54,3 @@ variable "AZ_ACR_SPN_CLIENT_SECRET" {
 variable "AZ_ACR_SPN_TENANT_ID" {
   type = string
 }
-
-# Variables to securely pass domain credentials
-variable "domain_access_key" {
-  type = string
-}
-
-variable "domain_secret" {
-  type = string
-}
