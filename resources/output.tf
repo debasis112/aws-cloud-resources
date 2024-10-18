@@ -27,5 +27,5 @@
 # # }
 
 output "app_runner-service_url" {
-   value = aws_apprunner_service.web_app_public.service_url
+   value = aws_apprunner_service.web_app_private.service_url
 }

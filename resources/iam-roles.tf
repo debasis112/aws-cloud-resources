@@ -103,29 +103,61 @@ resource "aws_iam_role" "apprunner_ecr_access" {
   })
 }
 
+# # For ECR to pull image from private repo
+# resource "aws_iam_role_policy" "apprunner_ecr_access_policy" {
+#   role = aws_iam_role.apprunner_ecr_access.id
+
+#   policy = jsonencode({
+#     Version = "2012-10-17",
+#     Statement = [
+#       {
+#         Effect   = "Allow",
+#         Action   = [
+#           "ecr:GetDownloadUrlForLayer",
+#           "ecr:BatchGetImage",
+#           "ecr:BatchCheckLayerAvailability"
+#         ],
+#         Resource = "arn:aws:ecr:us-east-1:022499026373:repository/private-project-work"
+#         # Syntax is arn:aws:ecr:<region>:<account-id>:repository/<repository-name> # Replace with your ECR repository ARN
+#       },
+#       {
+#         Effect   = "Allow",
+#         Action   = "ecr:GetAuthorizationToken",
+#         Resource = "*"
+#       }
+#     ]
+#   })
+# }
+
 # For ECR to pull image from private repo
-resource "aws_iam_role_policy" "apprunner_ecr_access_policy" {
-  role = aws_iam_role.apprunner_ecr_access.id
+resource "aws_iam_policy" "ecr_access_policy" {
+  name = "AppRunner-ECR-Cross-Region-Policy"
 
   policy = jsonencode({
-    Version = "2012-10-17",
-    Statement = [
+    "Version" : "2012-10-17",
+    "Statement" : [
       {
-        Effect   = "Allow",
-        Action   = [
+        "Effect" : "Allow",
+        "Action" : [
           "ecr:GetDownloadUrlForLayer",
           "ecr:BatchGetImage",
           "ecr:BatchCheckLayerAvailability"
         ],
         Resource = "arn:aws:ecr:us-east-1:022499026373:repository/private-project-work"
-        # Syntax is arn:aws:ecr:<region>:<account-id>:repository/<repository-name> # Replace with your ECR repository ARN
-  
       },
       {
-        Effect   = "Allow",
-        Action   = "ecr:GetAuthorizationToken",
-        Resource = "*"
+        "Effect" : "Allow",
+        "Action" : [
+          "ecr:GetAuthorizationToken"
+        ],
+        "Resource" : "*"
       }
     ]
   })
+}
+
+# For ECR to pull image from private repo
+resource "aws_iam_role_policy_attachment" "apprunner_ecr_access_attach" {
+  role       = aws_iam_role.apprunner_ecr_access.name
+  policy_arn = aws_iam_policy.ecr_access_policy.arn
 }
