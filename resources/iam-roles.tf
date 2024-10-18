@@ -141,17 +141,15 @@ resource "aws_iam_policy" "ecr_access_policy" {
         "Action" : [
           "ecr:GetDownloadUrlForLayer",
           "ecr:BatchGetImage",
-          "ecr:BatchCheckLayerAvailability"
+          "ecr:BatchCheckLayerAvailability",
+          "ecr:GetAuthorizationToken"
         ],
         Resource = "arn:aws:ecr:us-east-1:022499026373:repository/private-project-work"
       },
       {
         "Effect" : "Allow",
         "Action" : [
-          "ecr:GetAuthorizationToken",
-          "ecr:GetDownloadUrlForLayer",
-          "ecr:BatchGetImage",
-          "ecr:BatchCheckLayerAvailability"
+          "ecr:GetAuthorizationToken"
         ],
         "Resource" : "*"
       }
