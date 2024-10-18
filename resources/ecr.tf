@@ -13,6 +13,21 @@ resource "aws_ecrpublic_repository" "public-repo-01" {
   tags = merge(var.tags, { Name = "${var.base_name}-ecr-public-01" })
 }
 
+# ECR Public repository creation
+resource "aws_ecrpublic_repository" "public-repo-01" {
+  # provider        = aws.us_east_1
+  repository_name = "public-project-work"
+
+  catalog_data {
+    about_text        = "Public repository in ECR."
+    architectures     = ["ARM"]
+    description       = "This repository isa public repository in ECR for storing image for my project."
+    operating_systems = ["Linux"]
+  }
+
+  tags = merge(var.tags, { Name = "${var.base_name}-ecr-public-01" })
+}
+
 # ECR Private repository creation.
 resource "aws_ecr_repository" "private-repo-01" {
   provider             = aws.us_east_1
