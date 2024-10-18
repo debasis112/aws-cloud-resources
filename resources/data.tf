@@ -3,7 +3,7 @@ data "aws_caller_identity" "current" {}
 
 # Data source to get the latest image from the ECR Public repository
 data "aws_ecrpublic_repository" "public_repo" {
-  repository_name = aws_ecrpublic_repository.public-repo-01.repository_name  # Replace with your ECR Public repository name
+  repository_name = "public-project-work"  # Replace with your ECR Public repository name
 }
 
 # Example Docker image URI
