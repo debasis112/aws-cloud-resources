@@ -85,7 +85,7 @@
 # }
 
 
-
+# IAM rule and policy for App run to fatch image from ECR
 resource "aws_iam_role" "apprunner_ecr_access" {
   name = "apprunner-ecr-access-role"
 
