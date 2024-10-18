@@ -80,7 +80,7 @@ resource "aws_apprunner_service" "web_app_public" {
 
   source_configuration {
     image_repository {
-      image_identifier      = "public.ecr.aws/l6f8k7r6/public-project-work"  # Update with your public ECR image URI
+      image_identifier      = "public.ecr.aws/l6f8k7r6/public-project-work:v1.0.0"  # Update with your public ECR image URI
       image_repository_type = "ECR_PUBLIC"  # Specify that this is an ECR Public image
       image_configuration {
         port = "80"
