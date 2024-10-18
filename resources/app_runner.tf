@@ -1,8 +1,8 @@
-# App Runner Connection
-resource "aws_apprunner_connection" "my_connection" {
-  connection_name = "my-private-repo-connection"
-  provider_type   = "ECR"  # Change to "GITHUB" or "BITBUCKET" for those providers if needed
-}
+# # App Runner Connection
+# resource "aws_apprunner_connection" "my_connection" {
+#   connection_name = "my-private-repo-connection"
+#   provider_type   = "ECR"  # Change to "GITHUB" or "BITBUCKET" for those providers if needed
+# }
 
 # resource "aws_apprunner_service" "web_app" {
 #   service_name = "my-web-app"
