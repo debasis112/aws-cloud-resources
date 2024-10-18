@@ -100,31 +100,31 @@
 #   }
 # }
 
-# resource "aws_apprunner_service" "web_app_private" {
-#   service_name = "my-private-app"
+resource "aws_apprunner_service" "web_app_private" {
+  service_name = "my-private-app"
 
-#   source_configuration {
-#     image_repository {
-#       image_identifier      = "022499026373.dkr.ecr.us-east-1.amazonaws.com/private-project-work:v1.0.0"  # ECR repo in us-east-1
-#       image_repository_type = "ECR"
+  source_configuration {
+    image_repository {
+      image_identifier      = "022499026373.dkr.ecr.us-east-1.amazonaws.com/private-project-work:v1.0.0"  # ECR repo in us-east-1
+      image_repository_type = "ECR"
       
-#       image_configuration {
-#         runtime_environment_variables = {
-#           AWS_DEFAULT_REGION = "ap-south-1"  # Use the region where App Runner is running
-#         }
-#       }
-#     }
+      image_configuration {
+        runtime_environment_variables = {
+          AWS_DEFAULT_REGION = "ap-south-1"  # Use the region where App Runner is running
+        }
+      }
+    }
 
-#     # Attach the IAM role for cross-region access
-#     authentication_configuration {
-#       access_role_arn = aws_iam_role.apprunner_ecr_access.arn
-#     }
+    # Attach the IAM role for cross-region access
+    authentication_configuration {
+      access_role_arn = aws_iam_role.apprunner_ecr_access.arn
+    }
     
-#     auto_deployments_enabled = true
-#   }
+    auto_deployments_enabled = true
+  }
 
-#   instance_configuration {
-#     cpu    = "1024"
-#     memory = "2048"
-#   }
-# }
+  instance_configuration {
+    cpu    = "1024"
+    memory = "2048"
+  }
+}
