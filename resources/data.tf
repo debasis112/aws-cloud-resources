@@ -2,16 +2,15 @@
 data "aws_caller_identity" "current" {}
 
 # Data source to get the latest image from the ECR Public repository
-data "aws_ecrpublic_repository" "public_repo_image" {
+data "aws_ecrpublic_repository" "public_repo" {
   repository_name = aws_ecrpublic_repository.public-repo-01.repository_name  # Replace with your ECR Public repository name
-  image_tag       = "v1.0.0"  # Replace with your image tag version if not v1.0.0
 }
 
-# # Example Docker image URI
-# data "aws_ecrpublic_image" "latest_image" {
-#   repository_name = data.aws_ecrpublic_repository.public_repo.repository_name
-#   image_tag       = "v1.0.0"  # Replace with your image tag version if not v1.0.0
-# }
+# Example Docker image URI
+data "aws_ecrpublic_image" "latest_image" {
+  repository_name = data.aws_ecrpublic_repository.public_repo.repository_name
+  image_tag       = "v1.0.0"  # Replace with your image tag version if not v1.0.0
+}
 
 # # For specific subnet of name tag
 # data "aws_subnet" "subnet-01" {
