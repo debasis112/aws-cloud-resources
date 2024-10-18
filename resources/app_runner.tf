@@ -75,8 +75,8 @@ resource "aws_apprunner_service" "web_app" {
 }
 
 # For Public repo in ECR
-resource "aws_apprunner_service" "web_app" {
-  service_name = "my-public-web-app"
+resource "aws_apprunner_service" "web_app_public" {
+  service_name = "my-public-app-public"
 
   source_configuration {
     image_repository {
