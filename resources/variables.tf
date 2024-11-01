@@ -1,16 +1,16 @@
-# Declare variable for vpc counts
-variable "vpc_count" {
-  description = "Number of VPCs to create"
-  type        = number
-  default     = 1 # Adjust this value as needed for VPC
-}
+# # Declare variable for vpc counts
+# variable "vpc_count" {
+#   description = "Number of VPCs to create"
+#   type        = number
+#   default     = 1 # Adjust this value as needed for VPC
+# }
 
-# Declare variable for subnet counts
-variable "subnet_count" {
-  description = "Number of subnets to create"
-  type        = number
-  default     = 1 # Adjust this value as needed for subnets
-}
+# # Declare variable for subnet counts
+# variable "subnet_count" {
+#   description = "Number of subnets to create"
+#   type        = number
+#   default     = 1 # Adjust this value as needed for subnets
+# }
 
 # Define a variable for VPC tags
 variable "tags" {
@@ -32,25 +32,39 @@ variable "base_name" {
   default     = "deb" # Change this if need a different base name
 }
 
-variable "aws_secret_manager_tags" {
-  description = "Tags for VPC"
-  type        = map(any)
-}
+# # Variables to securely pass Azure ACR SPN credentials
+# variable "AZ_ACR_SPN_CLIENT_ID" {
+#   type = string
+# }
 
-variable "ssl_cert_tags" {
-  description = "Tags for VPC"
-  type        = map(any)
-}
+# variable "AZ_ACR_SPN_CLIENT_SECRET" {
+#   type = string
+# }
 
-# Variables to securely pass Azure ACR SPN credentials
-variable "AZ_ACR_SPN_CLIENT_ID" {
+# variable "AZ_ACR_SPN_TENANT_ID" {
+#   type = string
+# }
+
+# Variables App Runner
+variable "app_runner_service_name" {
   type = string
 }
 
-variable "AZ_ACR_SPN_CLIENT_SECRET" {
+variable "app_runner_image_identifier" {
   type = string
 }
 
-variable "AZ_ACR_SPN_TENANT_ID" {
+variable "app_runner_image_repository_type" {
+  type = string
+}
+
+variable "app_runner_default_region" {
+  type = string
+}
+
+variable "app_runner_inst_config_cpu" {
+  type = string
+}
+variable "app_runner_inst_config_memory" {
   type = string
 }

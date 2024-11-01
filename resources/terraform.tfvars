@@ -1,31 +1,7 @@
-
-
-aws_secret_manager_tags = {
-  Name        = "deb-secret-manager-01",
-  Project     = "debasis-project",
-  Environment = "Production",
-  Department  = "cloud-computing",
-  Owner       = "Debasis_Panda",
-  Company     = "WIPRO",
-  STD_ID      = "2020WA86256",
-}
-
-# web_cluster_tags = {
-#   Name        = "deb-ecs-cluster-01",
-#   Project     = "debasis-project",
-#   Environment = "Production",
-#   Department  = "cloud-computing",
-#   Owner       = "Debasis_Panda",
-#   Company     = "WIPRO",
-#   STD_ID      = "2020WA86256",
-# }
-
-ssl_cert_tags = {
-  Name        = "deb-ssl-cert-01",
-  Project     = "debasis-project",
-  Environment = "Production",
-  Department  = "cloud-computing",
-  Owner       = "Debasis_Panda",
-  Company     = "WIPRO",
-  STD_ID      = "2020WA86256",
-}
+# App runner
+app_runner_service_name          = "deb-web-app"
+app_runner_image_identifier      = "022499026373.dkr.ecr.us-east-1.amazonaws.com/private-project-work:v1.0.0"
+app_runner_image_repository_type = "ECR"
+app_runner_default_region        = "ap-south-1"
+app_runner_inst_config_cpu       = "1024"
+app_runner_inst_config_memory    = "2048"

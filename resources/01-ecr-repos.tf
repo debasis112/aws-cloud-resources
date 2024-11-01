@@ -24,15 +24,3 @@ resource "aws_ecr_repository" "private-repo-01" {
   }
   tags = merge(var.tags, { Name = "${var.base_name}-ecr-private-01" })
 }
-
-# # ECR Private repository creation.
-# resource "aws_ecr_repository" "private-repo-02" {
-#   # provider             = aws.us_east_1
-#   name                 = "private-project-work"
-#   image_tag_mutability = "MUTABLE"
-
-#   image_scanning_configuration {
-#     scan_on_push = true
-#   }
-#   tags = merge(var.tags, { Name = "${var.base_name}-ecr-private-02" })
-# }
